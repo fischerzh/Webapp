@@ -2,7 +2,7 @@ package org.example.demo
 
 class Gemeinde {
 	
-	String nam
+	String name
 
 	//static belongsTo = [ort:Ort]
 	
