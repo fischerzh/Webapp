@@ -2,9 +2,9 @@ package org.example.demo
 
 class Gemeinde {
 	
-	String name
+	String nam
 
-	//static belongsTo = [ort:Ort, rabbinat:Rabbinat]
+	//static belongsTo = [ort:Ort]
 	
     static constraints = {
 		name blank:false, unique:true
