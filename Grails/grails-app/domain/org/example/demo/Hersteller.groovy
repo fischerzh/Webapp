@@ -4,7 +4,7 @@ class Hersteller {
 	
 	String name
 	
-	//static belongsTo = [ort:Ort]
+	static belongsTo = [ort:Ort]
 	
     static constraints = {
 

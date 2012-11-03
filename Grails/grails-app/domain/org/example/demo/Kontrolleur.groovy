@@ -3,16 +3,23 @@ package org.example.demo
 class Kontrolleur {
 
 	String name
-	String type
 	
-	//static belongsTo = [rabbinat:Rabbinat, person:Person]
-	//static hasMany = [produkt:Produkt]
+	boolean ist_Kontrolleur
+	boolean ist_Rabbi
+	boolean ist_Aktiv
+	boolean ist_Gemeinde
 	
-    static constraints = {
+	static belongsTo = [typ:KontrollTyp, produkt:Produkt]
+
+	
+   	static constraints = {
 		name blank:false, unique:true
-    }
-	String toString()  {
-		return name? name: ""
+		ist_Kontrolleur blank:false
+		ist_Rabbi blank:false
+		ist_Aktiv blank:false
 	}
-	
+	   String toString()  {
+		   return name? name: ""
+	   }
+	   
 }

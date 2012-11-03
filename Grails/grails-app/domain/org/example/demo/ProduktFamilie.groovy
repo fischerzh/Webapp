@@ -2,8 +2,8 @@ package org.example.demo
 
 class ProduktFamilie {
 	
-	//static belongsTo = [produktfamilie_msprache:ProduktFamilie_msprache]
-	//static hasMany = [inhaltsstoffe:Inhaltsstoffe]
+	static belongsTo = [produktfamilie_msprache:ProduktFamilie_msprache]
+	
 	
 	String name
 	

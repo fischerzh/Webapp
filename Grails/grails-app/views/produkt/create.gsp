@@ -1,9 +1,9 @@
-<%@ page import="org.example.demo.Product" %>
+<%@ page import="org.example.demo.Produkt" %>
 <!doctype html>
 <html>
 	<head>
 		<meta name="layout" content="bootstrap">
-		<g:set var="entityName" value="${message(code: 'product.label', default: 'Product')}" />
+		<g:set var="entityName" value="${message(code: 'produkt.label', default: 'Produkt')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>

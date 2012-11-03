@@ -4,7 +4,7 @@ class Verpackung {
 	
 	int wert
 	
-	//static belongsTo = [verpackung_werte:Verpackung_werte]
+	static belongsTo = [verpackung_werte:Verpackung_werte]
 	
 	String name
 	

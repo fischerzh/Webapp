@@ -4,7 +4,7 @@ class Verteiler {
 	
 	String name
 	
-	//static belongsTo = [ort:Ort]
+	static belongsTo = [ort:Ort]
 
     static constraints = {
 		name blank:false, unique:true

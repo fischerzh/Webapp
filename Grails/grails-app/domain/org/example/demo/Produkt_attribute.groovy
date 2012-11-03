@@ -4,6 +4,8 @@ package org.example.demo
 class Produkt_attribute {
 
 	boolean ist_Koscher
+	boolean ist_Vegan
+	boolean ist_Vegetarisch
 	boolean ist_Bischulak
 	boolean ist_Bliothlssur
 	boolean ist_Chalavakum
@@ -21,7 +23,6 @@ class Produkt_attribute {
 	Date Zuletzt_veraendert
 	Date Als_naechstes_kontrolliert_am
 	
-	//static belongsTo = [land:Land]
 	
     static constraints = {
     }
