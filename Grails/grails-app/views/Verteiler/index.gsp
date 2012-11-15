@@ -20,12 +20,11 @@
 				<bootstrap:alert class="alert-info">${flash.message}</bootstrap:alert>
 				</g:if>
 
-   				 <div class="input-prepend"> 
-    			    <span class="add-on"><i class="icon-search"></i></span><input name="url" type="text" class="span2" placeholder="Page Url"> 
-    			 </div> 
-
-
-												
+				<g:form url='[controller: "verteiler", action: "index"]' id="search" name="search" method="get">
+					<g:textField name="q" value="${params.q}" size="10"/> 
+					<input type="submit" value="Search" />
+				</g:form>
+   																
 				<table class="table table-striped">
 					<thead>
 						<tr>	

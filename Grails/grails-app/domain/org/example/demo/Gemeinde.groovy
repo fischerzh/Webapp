@@ -2,6 +2,7 @@ package org.example.demo
 
 class Gemeinde {
 	
+	static searchable = true
 	String name
 	String rabbinat
 

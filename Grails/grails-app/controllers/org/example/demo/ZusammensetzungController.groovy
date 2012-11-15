@@ -9,13 +9,35 @@ class ZusammensetzungController {
     static allowedMethods = [create: ['GET', 'POST'], edit: ['GET', 'POST'], delete: 'POST']
 
 	def index() {
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: Zusammensetzung.list(params), objInstanceTotal: Zusammensetzung.count()]
+		def objList
+		def objCount
+		if(params.q) {
+			objList = Zusammensetzung.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Zusammensetzung.list(params)
+			objCount = Zusammensetzung.count()
+		}
+		 
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
      def list() {
+        def objList
+		def objCount
+		if(params.q) {
+			objList = Zusammensetzung.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Zusammensetzung.list(params)
+			objCount = Zusammensetzung.count()
+		}
+		 
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: Zusammensetzung.list(params), objInstanceTotal: Zusammensetzung.count()]
+        [objInstanceList: objList, objInstanceTotal: objCount]
     }
 
     def create() {

@@ -9,13 +9,35 @@ class ProduktFamilieController {
     static allowedMethods = [create: ['GET', 'POST'], edit: ['GET', 'POST'], delete: 'POST']
 
 	def index() {
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: ProduktFamilie.list(params), objInstanceTotal: ProduktFamilie.count()]
+		def objList
+		def objCount
+		if(params.q) {
+			objList = ProduktFamilie.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = ProduktFamilie.list(params)
+			objCount = ProduktFamilie.count()
+		}
+		 
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
      def list() {
+		def objList
+		def objCount
+		if(params.q) {
+			objList = ProduktFamilie.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = ProduktFamilie.list(params)
+			objCount = ProduktFamilie.count()
+		}
+		 
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: ProduktFamilie.list(params), objInstanceTotal: ProduktFamilie.count()]
+        [objInstanceList: objList, objInstanceTotal: objCount]
     }
 
     def create() {

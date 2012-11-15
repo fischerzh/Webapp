@@ -9,13 +9,35 @@ class GemeindeController {
     static allowedMethods = [create: ['GET', 'POST'], edit: ['GET', 'POST'], delete: 'POST']
 
 	def index() {
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: Gemeinde.list(params), objInstanceTotal: Gemeinde.count()]
+		def objList
+		def objCount
+		if(params.q) {
+			objList = Gemeinde.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Gemeinde.list(params)
+			objCount = Gemeinde.count()
+		}
+		 
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
      def list() {
+		def objList
+		def objCount
+		if(params.q) {
+			objList = Gemeinde.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Gemeinde.list(params)
+			objCount = Gemeinde.count()
+		}
+		 
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: Gemeinde.list(params), objInstanceTotal: Gemeinde.count()]
+        [objInstanceList: objList, objInstanceTotal: objCount]
     }
 
     def create() {

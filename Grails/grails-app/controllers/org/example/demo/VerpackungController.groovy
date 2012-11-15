@@ -9,13 +9,35 @@ class VerpackungController {
     static allowedMethods = [create: ['GET', 'POST'], edit: ['GET', 'POST'], delete: 'POST']
 
 	def index() {
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: Verpackung.list(params), objInstanceTotal: Verpackung.count()]
+		def objList
+		def objCount
+		if(params.q) {
+			objList = Verpackung.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Verpackung.list(params)
+			objCount = Verpackung.count()
+		}
+		 
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
      def list() {
+        def objList
+		def objCount
+		if(params.q) {
+			objList = Verpackung.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Verpackung.list(params)
+			objCount = Verpackung.count()
+		}
+		 
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: Verpackung.list(params), objInstanceTotal: Verpackung.count()]
+        [objInstanceList: objList, objInstanceTotal: objCount]
     }
 
     def create() {

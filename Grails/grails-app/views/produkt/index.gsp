@@ -20,15 +20,15 @@
 				<bootstrap:alert class="alert-info">${flash.message}</bootstrap:alert>
 				</g:if>
 				
-					<div class="input-prepend"> 
-     			   <span class="add-on"><i class="icon-search"></i></span><input name="url" type="text" class="span2" placeholder="Page Url"> 
-   				 </div> 
 				
+				<g:form url='[controller: "produkt", action: "index"]' id="search" name="search" method="get">
+					<g:textField name="q" value="${params.q}" size="10"/> 
+					<input type="submit" value="Search" />
+				</g:form>
+						
 				<table class="table table-striped">
 					<thead>
-						<tr>
-											
-						
+						<tr>						
 							<g:sortableColumn property="name" title="${message(code: 'produkt.name.label', default: 'Name')}" />
 							<g:sortableColumn property="produktfamilie" title="${message(code: 'produkt.produktfamilie.label', default: 'ProduktFamilie')}" />
 							<g:sortableColumn property="hersteller" title="${message(code: 'produkt.hersteller.label', default: 'Hersteller')}" />
@@ -39,25 +39,25 @@
 						</tr>
 					</thead>
 					<tbody>
-					<g:each in="${productInstanceList}" var="productInstance">
+					<g:each in="${objInstanceList}" var="productInstance">
 						<tr>
 						
 							
 						
-							<td>${fieldValue(bean: productInstance, field: "name")}</td>
-							<td>${fieldValue(bean: productInstance, field: "produktfamilie")}</td>
-							<td>${fieldValue(bean: productInstance, field: "hersteller")}</td>
-							<td>${fieldValue(bean: productInstance, field: "verteiler")}</td>
-							<td>${fieldValue(bean: productInstance, field: "zusammensetzung")}</td>
-							<td>${fieldValue(bean: productInstance, field: "verpackung")}</td>
+							<td>${fieldValue(bean: objInstance, field: "name")}</td>
+							<td>${fieldValue(bean: objInstance, field: "produktfamilie")}</td>
+							<td>${fieldValue(bean: objInstance, field: "hersteller")}</td>
+							<td>${fieldValue(bean: objInstance, field: "verteiler")}</td>
+							<td>${fieldValue(bean: objInstance, field: "zusammensetzung")}</td>
+							<td>${fieldValue(bean: objInstance, field: "verpackung")}</td>
 							
 							
 							<td class="link">
-								<g:link action="edit" id="${productInstance.id}" class="btn btn-small">Edit &raquo;</g:link>
+								<g:link action="edit" id="${objInstance.id}" class="btn btn-small">Edit &raquo;</g:link>
 							</td>
 						
 							<td class="link">
-								<g:link action="show" id="${productInstance.id}" class="btn btn-small">Show &raquo;</g:link>
+								<g:link action="show" id="${objInstance.id}" class="btn btn-small">Show &raquo;</g:link>
 							</td>
 						</tr>
 					</g:each>
@@ -69,7 +69,7 @@
 								<g:message code="default.create.label" args="[entityName]" />
 							</g:link>
 				<div class="pagination">
-					<bootstrap:paginate total="${productInstanceTotal}" />
+					<bootstrap:paginate total="${objInstanceTotal}" />
 				</div>
 			</div>
 

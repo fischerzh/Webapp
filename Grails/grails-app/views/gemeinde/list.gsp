@@ -22,6 +22,11 @@
 				<bootstrap:alert class="alert-info">${flash.message}</bootstrap:alert>
 				</g:if>
 				
+				<g:form url='[controller: "gemeinde", action: "index"]' id="search" name="search" method="get">
+					<g:textField name="q" value="${params.q}" size="10"/> 
+					<input type="submit" value="Search" />
+				</g:form>
+				
 				<table class="table table-striped">
 					<thead>
 						<tr>

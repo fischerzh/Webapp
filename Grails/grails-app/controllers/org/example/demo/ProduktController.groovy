@@ -10,10 +10,20 @@ class ProduktController {
 
 
     def index() {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		def productInstanceList = Produkt.list(params)
+		def objList
+		def objCount
 		def verwalterList = Kontrolleur.list()
-        [productInstanceList: productInstanceList, productInstanceTotal: Produkt.count(), verwalterList: verwalterList]
+		if(params.q) {
+			objList = Produkt.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Produkt.list(params)
+			objCount = Produkt.count()
+		}
+		 
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		[objInstanceList: objList, objInstanceTotal: objCount, verwalterList: verwalterList]		
     }
 
     def create() {

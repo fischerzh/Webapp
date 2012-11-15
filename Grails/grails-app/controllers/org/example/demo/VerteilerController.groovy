@@ -9,13 +9,35 @@ class VerteilerController {
     static allowedMethods = [create: ['GET', 'POST'], edit: ['GET', 'POST'], delete: 'POST']
 
 	def index() {
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: Verteiler.list(params), objInstanceTotal: Verteiler.count()]
+		def objList
+		def objCount
+		if(params.q) {
+			objList = Verteiler.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Verteiler.list(params)
+			objCount = Verteiler.count()
+		}
+		 
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
      def list() {
+       def objList
+		def objCount
+		if(params.q) {
+			objList = Verteiler.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Verteiler.list(params)
+			objCount = Verteiler.count()
+		}
+		 
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: Verteiler.list(params), objInstanceTotal: Verteiler.count()]
+        [objInstanceList: objList, objInstanceTotal: objCount]
     }
 
     def create() {

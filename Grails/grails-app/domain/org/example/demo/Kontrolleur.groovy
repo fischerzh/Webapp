@@ -9,7 +9,7 @@ class Kontrolleur {
 	boolean ist_Aktiv
 	boolean ist_Gemeinde
 	
-	static belongsTo = [typ:KontrollTyp, produkt:Produkt]
+	static belongsTo = [typ:KontrollTyp]
 
 	
    	static constraints = {

@@ -1,5 +1,0 @@
-class VerkaufsortController {
-	
-		def index() { }
-	}
-	

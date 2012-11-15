@@ -1,5 +1,5 @@
 
-<%@ page import="org.example.demo.DummyClass" %>
+<%@ page import="org.example.demo.Gemeinde" %>
 <!doctype html>
 <html>
 	<head>
@@ -20,10 +20,15 @@
 				<bootstrap:alert class="alert-info">${flash.message}</bootstrap:alert>
 				</g:if>
 				
+				<g:form url='[controller: "gemeinde", action: "index"]' id="search" name="search" method="get">
+					<g:textField name="q" value="${params.q}" size="10"/> 
+					<input type="submit" value="Search" />
+				</g:form>
+				
 				<table class="table table-striped">
 					<thead>
 						<tr>	
-							<g:sortableColumn property="name" title="${message(code: 'dummyClass.name.label', default: 'Name')}" />
+							<g:sortableColumn property="name" title="${message(code: 'Gemeinde.name.label', default: 'Name')}" />
 													
 							<th></th>
 						</tr>

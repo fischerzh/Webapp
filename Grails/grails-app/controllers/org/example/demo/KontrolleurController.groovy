@@ -9,13 +9,35 @@ class KontrolleurController {
     static allowedMethods = [create: ['GET', 'POST'], edit: ['GET', 'POST'], delete: 'POST']
 
 	def index() {
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: Kontrolleur.list(params), objInstanceTotal: Kontrolleur.count()]
+		def objList
+		def objCount
+		if(params.q) {
+			objList = Kontrolleur.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Kontrolleur.list(params)
+			objCount = Kontrolleur.count()
+		}
+		 
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
      def list() {
+       def objList
+		def objCount
+		if(params.q) {
+			objList = Kontrolleur.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = Kontrolleur.list(params)
+			objCount = Kontrolleur.count()
+		}
+		 
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: Kontrolleur.list(params), objInstanceTotal: Kontrolleur.count()]
+        [objInstanceList: objList, objInstanceTotal: objCount]
     }
 
     def create() {
