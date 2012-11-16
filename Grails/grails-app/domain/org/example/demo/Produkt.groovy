@@ -28,7 +28,7 @@ class Produkt {
 	Date Als_naechstes_kontrolliert_am
 	
 	static belongsTo = [hersteller:Hersteller, verteiler:Verteiler, verpackung:Verpackung, produktfamilie:ProduktFamilie,
-					    inhaltsstoffe:Inhaltsstoffe, zusammensetzung:Zusammensetzung, verkaeufer:Verkaeufer, kontrolleur:Kontrolleur]
+					    inhaltsstoffe:Inhaltsstoffe, verkaeufer:Verkaeufer, kontrolleur:Kontrolleur]
 	
     static constraints = {
 		name blank:false, unique:true
