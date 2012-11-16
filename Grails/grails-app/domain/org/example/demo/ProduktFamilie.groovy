@@ -2,6 +2,7 @@ package org.example.demo
 
 class ProduktFamilie {
 	
+	static searchable = true
 	static belongsTo = [produktfamilie_msprache:ProduktFamilie_msprache]
 	
 	

@@ -2,6 +2,7 @@ package org.example.demo
 
 class Kontrolleur {
 
+	static searchable = true
 	String name
 	
 	boolean ist_Kontrolleur

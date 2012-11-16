@@ -53,8 +53,8 @@
 								<g:link controller='hersteller'>Hersteller </g:link></li>							
 								<li<%= controllerName == 'inhaltsstoffe'? ' class="active"' : '' %>>
 								<g:link controller='inhaltsstoffe'>Inhaltsstoffe </g:link></li>								
-								<li<%= controllerName == 'zusammensetzung'? ' class="active"' : '' %>>
-								<g:link controller='zusammensetzung'>Zusammensetzung </g:link></li>
+								<li<%= controllerName == 'verpackung_werte'? ' class="active"' : '' %>>
+								<g:link controller='verpackung_werte'>Verpackungs Werte </g:link></li>
 								<li<%= controllerName == 'verpackung'? ' class="active"' : '' %>>
 								<g:link controller='verpackung'>Verpackung</g:link></li>
 								<li<%= controllerName == 'verkaeufer'? ' class="active"' : '' %>>

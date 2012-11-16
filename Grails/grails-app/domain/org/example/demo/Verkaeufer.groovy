@@ -2,6 +2,7 @@ package org.example.demo
 
 class Verkaeufer {
 
+	static searchable = true
 	String name
 	
 	static belongsTo = [ort:Ort]

@@ -115,7 +115,7 @@ class VerpackungController {
     }
 
     def delete() {
-        def objInstance = DummyClass.get(params.id)
+        def objInstance = Verpackung.get(params.id)
         if (!objInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'Verpackung.label', default: 'Verpackung'), params.id])
             redirect action: 'index'
