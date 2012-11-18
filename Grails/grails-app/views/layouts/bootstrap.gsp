@@ -31,10 +31,12 @@
 						
 						<div class="nav-collapse">							
 							<ul class="nav nav-pills">
-							<li<%=  controllerName == 'home'? ' class="active"' : '' %>>
+								<li<%=  controllerName == 'home'? ' class="active"' : '' %>>
 								<g:link controller='home'>Home</g:link></li>
 								<li<%= controllerName == 'user'? ' class="active"' : '' %>>
 								<g:link controller='user'>User </g:link></li>		
+								<li<%=  controllerName == 'filter'? ' class="active"' : '' %>>
+								<g:link controller='filter'>Filter</g:link></li>
 							<li class="dropdown">
 								 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 									 Datenbank
@@ -75,11 +77,9 @@
 							     </a>
 							  <ul class="dropdown-menu">
 							    <li<%= controllerName == 'xml'? ' class="active"' : '' %>>
-								<g:link controller='xml'>Export as XML </g:link></li>	
-								 <li<%= controllerName == 'pdf'? ' class="active"' : '' %>>
-								<g:link controller='pdf'>Export as PDF </g:link></li>
-								 <li<%= controllerName == 'json'? ' class="active"' : '' %>>
-								<g:link controller='json'>Export as JSON </g:link></li>							
+								<g:link controller='exportList'>List Export </g:link></li>	
+								 <li<%= controllerName == 'export'? ' class="active"' : '' %>>
+								<g:link controller='exportJson'>JSON Export </g:link></li>						
 							  </ul> </li></ul>
 						</div>
 						
