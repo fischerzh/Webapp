@@ -125,12 +125,9 @@
 
 	<div class="container-fluid">
 		<g:layoutBody />
-
+		
 		<hr>
-
-		<footer>
-			<p>&copy; UZH 2012</p>
-		</footer>
+		
 	</div>
 
 	<r:layoutResources />

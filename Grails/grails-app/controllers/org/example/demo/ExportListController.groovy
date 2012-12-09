@@ -1,5 +1,7 @@
 package org.example.demo
 import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.web.servlet.tags.form.SelectedValueComparator;
+
 import grails.plugins.springsecurity.Secured
 
 
@@ -10,20 +12,24 @@ class ExportListController {
 	def exportService
 	def grailsApplication
 	
+	def objList
+	def objTotal
+
+	def filter
+	
 	def index() {
 		
-		def objList
-		def objTotal
-		
-		if(params.id) {
-			objList = Produkt.search("Milch").results
+		if(params.selectedValue) {				
+			filter = Filter.get(params.selectedValue)		
+			filter.istAktiv = true	
+			objList = Produkt.search(filter.name).results
 			objTotal = objList.size()
 		}
-		else {
-			objList = Produkt.list()
-			objTotal = Produkt.count()
-		}		
-		
+		else {			
+				objList = Produkt.list()
+				objTotal = Produkt.count()
+			}
+			
 		if(!params.max) params.max = 10
 		if(params?.format && params.format != "html"){
 		response.contentType = grailsApplication.config.grails.mime.types[params.format]
@@ -31,7 +37,8 @@ class ExportListController {
 				
 		exportService.export(params.format, response.outputStream, objList, [:], [:])
 		}
-		   [ objInstanceList : objList, objInstanceTotal : objTotal]
+		  render (view:'index', model: [ objInstanceList : objList, objInstanceTotal : objTotal])
 	}
-		
+
+	
 }
