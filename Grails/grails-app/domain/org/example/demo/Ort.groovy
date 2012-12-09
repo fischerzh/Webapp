@@ -7,7 +7,7 @@ class Ort {
 	String zip
 	
 	//static hasMany = [hersteller:Hersteller, verteiler:Verteiler, verkaeufer:Verkaeufer, gemeinde:Gemeinde ]
-	static belongsTo = [land:Land]
+	static belongsTo = [landList:Land]
 	
     static constraints = {
 		name blank:false, unique:true

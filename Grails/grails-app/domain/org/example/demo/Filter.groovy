@@ -2,6 +2,7 @@ package org.example.demo
 
 class Filter {
 	
+	static searchable = true
 	String name
 	boolean koscher = true
 	
@@ -9,4 +10,8 @@ class Filter {
 
     static constraints = {
     }
+	
+	String toString()  {
+		return name? name: ""
+	}
 }

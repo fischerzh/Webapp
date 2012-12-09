@@ -5,19 +5,19 @@ class Kontrolleur {
 	static searchable = true
 	String name
 	
-	boolean ist_Kontrolleur
-	boolean ist_Rabbi
-	boolean ist_Aktiv
-	boolean ist_Gemeinde
+	boolean istKontrolleur
+	boolean istRabbi
+	boolean istAktiv
+	boolean istGemeinde
 	
 	static belongsTo = [typ:KontrollTyp]
 
 	
    	static constraints = {
 		name blank:false, unique:true
-		ist_Kontrolleur blank:false
-		ist_Rabbi blank:false
-		ist_Aktiv blank:false
+		istKontrolleur blank:false
+		istRabbi blank:false
+		istAktiv blank:false
 	}
 	   String toString()  {
 		   return name? name: ""

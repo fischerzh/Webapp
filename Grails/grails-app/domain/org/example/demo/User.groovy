@@ -4,6 +4,7 @@ class User {
 
 	transient springSecurityService
 
+	static searchable = true
 	String username
 	String password
 	boolean enabled

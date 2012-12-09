@@ -37,11 +37,11 @@
 					<g:each in="${objInstanceList}" var="objInstance">
 						<tr>
 						
-							<td>${fieldValue(bean: objInstance, field: "name")}</td>
+							<td>${fieldValue(bean: objInstance, field: "wert")}</td>
 							
 							<td>
 								<g:each in="${objInstanceList }" var="Verpackung">
-									${Verpackung.name }
+									${Verpackung.wert }
 								</g:each>
 							</td>
 						

@@ -7,25 +7,26 @@ class Produkt {
 	static searchable = true
 	String name
 	String ean
-	boolean ist_Koscher
-	boolean ist_Vegan
-	boolean ist_Vegetarisch
-	boolean ist_Bischulak
-	boolean ist_Bliothlssur
-	boolean ist_Chalavakum
-	boolean ist_Israelisches_Produkt
-	boolean ist_Tarovetlssur
-	boolean pas_Palter
-	boolean ist_IGFL_Produkt
-	boolean ist_Mp
-	boolean Kontrolliert_durch_Extern
+	boolean aktiv = true
+	boolean istKoscher = false
+	boolean istVegan= false
+	boolean istVegetarisch = false
+	boolean istBischulak = false
+	boolean istBliothlssur = false
+	boolean istChalavakum = false
+	boolean istIsraelischesProdukt = false
+	boolean istTarovetlssur = false
+	boolean pasPalter = false
+	boolean istIGFLProdukt = false
+	boolean istMp = false
+	boolean externeKontrolle = false
 	String parve
 	String tolaim
-	Date Erstellungsdatum
-	Date Veroeffentlichungsdatum
-	Date Zuletzt_kontrolliert
-	Date Zuletzt_veraendert
-	Date Als_naechstes_kontrolliert_am
+	Date erstellung
+	Date veroeffentlichung
+	Date kontrolle
+	Date geaendert
+	Date naechsteKontrolle
 	
 	static belongsTo = [hersteller:Hersteller, verteiler:Verteiler, verpackung:Verpackung, produktfamilie:ProduktFamilie,
 					    inhaltsstoffe:Inhaltsstoffe, verkaeufer:Verkaeufer, kontrolleur:Kontrolleur]
@@ -37,5 +38,8 @@ class Produkt {
 	String toString()  {
 		return name? name: ""
 	}
+	static mapping = {
+		autoTimestamp true
+}
 	
 }

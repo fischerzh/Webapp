@@ -33,22 +33,20 @@
 							<g:sortableColumn property="produktfamilie" title="${message(code: 'produkt.produktfamilie.label', default: 'ProduktFamilie')}" />
 							<g:sortableColumn property="hersteller" title="${message(code: 'produkt.hersteller.label', default: 'Hersteller')}" />
 							<g:sortableColumn property="verteiler" title="${message(code: 'produkt.verteiler.label', default: 'Verteiler')}" />
-							<g:sortableColumn property="zusammensetzung" title="${message(code: 'produkt.zusammensetzung.label', default: 'Zusammensetzung')}" />
+							<g:sortableColumn property="inhaltsstoffe" title="${message(code: 'produkt.inhaltsstoffe.label', default: 'Inhaltsstoffe')}" />
 							<g:sortableColumn property="verpackung" title="${message(code: 'produkt.verpackung.label', default: 'Verpackung')}" />
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-					<g:each in="${objInstanceList}" var="productInstance">
+					<g:each in="${objInstanceList}" var="objInstance">
 						<tr>
-						
-							
-						
+												
 							<td>${fieldValue(bean: objInstance, field: "name")}</td>
 							<td>${fieldValue(bean: objInstance, field: "produktfamilie")}</td>
 							<td>${fieldValue(bean: objInstance, field: "hersteller")}</td>
 							<td>${fieldValue(bean: objInstance, field: "verteiler")}</td>
-							<td>${fieldValue(bean: objInstance, field: "zusammensetzung")}</td>
+							<td>${fieldValue(bean: objInstance, field: "inhaltsstoffe")}</td>
 							<td>${fieldValue(bean: objInstance, field: "verpackung")}</td>
 							
 							

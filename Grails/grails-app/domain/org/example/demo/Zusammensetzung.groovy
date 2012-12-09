@@ -11,6 +11,6 @@ class Zusammensetzung {
     }
 	
 	String toString()  {
-		return name? name: ""
+		return inhaltstoffe.name? name: ""
 	}
 }

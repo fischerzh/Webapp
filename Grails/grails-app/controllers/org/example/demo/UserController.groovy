@@ -11,8 +11,20 @@ class UserController {
     }
 
     def list() {
+		
+		def objList
+		def objCount
+		if(params.q) {
+			objList = User.search(params.q + "*").results
+			objCount = objList.size()
+		}
+		else {
+			objList = User.list(params)
+			objCount = User.count()
+		}
+		
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [userInstanceList: User.list(params), userInstanceTotal: User.count()]
+        [userInstanceList: objList, userInstanceTotal: objCount]
     }
 
     def create() {

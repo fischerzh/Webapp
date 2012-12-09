@@ -8,4 +8,7 @@ class Verpackung {
 	
     static constraints = {
     }
+	String toString()  {
+		return verpackung_werte.verpackung + wert? wert: ""
+	}
 }

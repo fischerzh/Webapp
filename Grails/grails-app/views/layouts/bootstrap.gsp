@@ -76,7 +76,9 @@
 							 	 <b class="caret"></b>
 							     </a>
 							  <ul class="dropdown-menu">
-							    <li<%= controllerName == 'xml'? ' class="active"' : '' %>>
+							    <li<%= controllerName == 'manageList'? ' class="active"' : '' %>>
+								<g:link controller='manageList'>Manage List</g:link></li>	
+								<li<%= controllerName == 'exportList'? ' class="active"' : '' %>>
 								<g:link controller='exportList'>List Export </g:link></li>	
 								 <li<%= controllerName == 'export'? ' class="active"' : '' %>>
 								<g:link controller='exportJson'>JSON Export </g:link></li>						
