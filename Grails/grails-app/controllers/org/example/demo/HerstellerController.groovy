@@ -24,21 +24,7 @@ class HerstellerController {
         [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
-     def list() {
-        def objList
-		def objCount
-		if(params.q) {
-			objList = Hersteller.search(params.q + "*").results
-			objCount = objList.size()
-		}
-		else {
-			objList = Hersteller.list(params)
-			objCount = Hersteller.count()
-		}
-		 
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: objList, objInstanceTotal: objCount]
-    }
+
 
     def create() {
 		switch (request.method) {

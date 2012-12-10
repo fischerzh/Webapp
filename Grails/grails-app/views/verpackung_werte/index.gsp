@@ -39,18 +39,14 @@
 						
 							<td>${fieldValue(bean: objInstance, field: "verpackung")}</td>
 							
-							<td>
-								<g:each in="${objInstanceList }" var="Verpackung_werte">
-									${Verpackung_werte.verpackung }
-								</g:each>
-							</td>
-						
+												
 							<td class="link">
 								<g:link action="edit" id="${objInstance.id}" class="btn btn-small">Edit &raquo;</g:link>
 							</td>
 								<td class="link">
 								<g:link action="show" id="${objInstance.id}" class="btn btn-small">Show &raquo;</g:link>
 							</td>
+						
 						</tr>
 					</g:each>
 					</tbody>

@@ -29,7 +29,7 @@
 					<thead>
 						<tr>	
 							<g:sortableColumn property="name" title="${message(code: 'verteiler.name.label', default: 'Name')}" />
-													
+							<g:sortableColumn property="ort" title="${message(code: 'verteiler.ort.label', default: 'Ort')}" />						
 							<th></th>
 						</tr>
 					</thead>
@@ -37,17 +37,10 @@
 					<g:each in="${objInstanceList}" var="objInstance">
 						<tr>
 						
-							<td>${fieldValue(bean: productInstance, field: "content")}</td>
-						
-							<td>${fieldValue(bean: productInstance, field: "description")}</td>
-						
-							<td>${fieldValue(bean: productInstance, field: "name")}</td>
+												
+							<td>${fieldValue(bean: objInstance, field: "name")}</td>
+							<td>${fieldValue(bean: objInstance, field: "ort")}</td>
 							
-							<td>
-								<g:each in="${objInstanceList }" var="dummyClass">
-									${dummyClass.name }
-								</g:each>
-							</td>
 						
 							<td class="link">
 								<g:link action="edit" id="${objInstance.id}" class="btn btn-small">Edit &raquo;</g:link>
@@ -55,6 +48,7 @@
 								<td class="link">
 								<g:link action="show" id="${objInstance.id}" class="btn btn-small">Show &raquo;</g:link>
 							</td>
+					
 						</tr>
 					</g:each>
 					</tbody>

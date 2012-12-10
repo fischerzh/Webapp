@@ -24,21 +24,6 @@ class FilterController {
         [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
-     def list() {
-        def objList
-		def objCount
-		if(params.q) {
-			objList = Filter.search(params.q + "*").results
-			objCount = objList.size()
-		}
-		else {
-			objList = Filter.list(params)
-			objCount = Filter.count()
-		}
-		 
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: objList, objInstanceTotal: objCount]
-    }
 
     def create() {
 		switch (request.method) {

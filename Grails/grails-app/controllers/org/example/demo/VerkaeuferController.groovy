@@ -24,22 +24,6 @@ class VerkaeuferController {
         [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
-     def list() {
-        def objList
-		def objCount
-		if(params.q) {
-			objList = Verkaeufer.search(params.q + "*").results
-			objCount = objList.size()
-		}
-		else {
-			objList = Verkaeufer.list(params)
-			objCount = Verkaeufer.count()
-		}
-		 
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: objList, objInstanceTotal: objCount]
-    }
-
     def create() {
 		switch (request.method) {
 		case 'GET':

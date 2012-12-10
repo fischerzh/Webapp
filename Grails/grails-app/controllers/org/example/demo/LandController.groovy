@@ -24,21 +24,6 @@ class LandController {
         [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
-     def list() {
-        def objList
-		def objCount
-		if(params.q) {
-			objList = Land.search(params.q + "*").results
-			objCount = objList.size()
-		}
-		else {
-			objList = Land.list(params)
-			objCount = Land.count()
-		}
-		 
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: objList, objInstanceTotal: objCount]
-    }
 
     def create() {
 		switch (request.method) {

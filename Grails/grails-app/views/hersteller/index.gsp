@@ -29,7 +29,7 @@
 					<thead>
 						<tr>	
 							<g:sortableColumn property="name" title="${message(code: 'Hersteller.name.label', default: 'Name')}" />
-													
+							<g:sortableColumn property="ort" title="${message(code: 'Hersteller.ort.label', default: 'Ort')}" />						
 							<th></th>
 						</tr>
 					</thead>
@@ -38,12 +38,8 @@
 						<tr>
 						
 							<td>${fieldValue(bean: objInstance, field: "name")}</td>
+							<td>${fieldValue(bean: objInstance, field: "ort")}</td>
 							
-							<td>
-								<g:each in="${objInstanceList }" var="hersteller">
-									${hersteller.name }
-								</g:each>
-							</td>
 						
 							<td class="link">
 								<g:link action="edit" id="${objInstance.id}" class="btn btn-small">Edit &raquo;</g:link>
@@ -51,6 +47,7 @@
 								<td class="link">
 								<g:link action="show" id="${objInstance.id}" class="btn btn-small">Show &raquo;</g:link>
 							</td>
+							
 						</tr>
 					</g:each>
 					</tbody>

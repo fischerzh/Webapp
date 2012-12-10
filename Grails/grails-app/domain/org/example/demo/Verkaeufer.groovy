@@ -5,7 +5,7 @@ class Verkaeufer {
 	static searchable = true
 	String name
 	
-	static belongsTo = [ortList:Ort]
+	static belongsTo = [ort:Ort]
 	
     static constraints = {
 		name blank:false, unique:true

@@ -24,21 +24,6 @@ class GemeindeController {
         [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
-     def list() {
-		def objList
-		def objCount
-		if(params.q) {
-			objList = Gemeinde.search(params.q + "*").results
-			objCount = objList.size()
-		}
-		else {
-			objList = Gemeinde.list(params)
-			objCount = Gemeinde.count()
-		}
-		 
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: objList, objInstanceTotal: objCount]
-    }
 
     def create() {
 		switch (request.method) {

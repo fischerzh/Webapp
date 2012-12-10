@@ -24,21 +24,6 @@ class InhaltsstoffeController {
         [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
-     def list() {
-        def objList
-		def objCount
-		if(params.q) {
-			objList = Inhaltsstoffe.search(params.q + "*").results
-			objCount = objList.size()
-		}
-		else {
-			objList = Inhaltsstoffe.list(params)
-			objCount = Inhaltsstoffe.count()
-		}
-		 
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: objList, objInstanceTotal: objCount]
-    }
 
     def create() {
 		switch (request.method) {

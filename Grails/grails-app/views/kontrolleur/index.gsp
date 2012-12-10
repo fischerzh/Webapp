@@ -29,7 +29,9 @@
 					<thead>
 						<tr>	
 							<g:sortableColumn property="name" title="${message(code: 'Kontrolleur.name.label', default: 'Name')}" />
-													
+							<g:sortableColumn property="istK" title="${message(code: 'Kontrolleur.istKontrolleur.label', default: 'ist Kontrolleur')}" />	
+							<g:sortableColumn property="istR" title="${message(code: 'Kontrolleur.istRabbi.label', default: 'ist Rabbi')}" />
+							<g:sortableColumn property="istA" title="${message(code: 'Kontrolleur.istAktiv.label', default: 'ist Aktiv')}" />					
 							<th></th>
 						</tr>
 					</thead>
@@ -38,12 +40,9 @@
 						<tr>
 						
 							<td>${fieldValue(bean: objInstance, field: "name")}</td>
-							
-							<td>
-								<g:each in="${objInstanceList }" var="Kontrolleur">
-									${Kontrolleur.name }
-								</g:each>
-							</td>
+							<td>${fieldValue(bean: objInstance, field: "istKontrolleur")}</td>
+							<td>${fieldValue(bean: objInstance, field: "istRabbi")}</td>
+							<td>${fieldValue(bean: objInstance, field: "istAktiv")}</td>
 						
 							<td class="link">
 								<g:link action="edit" id="${objInstance.id}" class="btn btn-small">Edit &raquo;</g:link>

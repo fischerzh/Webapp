@@ -31,24 +31,20 @@
 					<thead>
 						<tr>	
 							<g:sortableColumn property="name" title="${message(code: 'ProduktFamilie.name.label', default: 'Name')}" />
-													
+							<g:sortableColumn property="msprache" title="${message(code: 'ProduktFamilie.produktfamilie_msprache.label', default: 'Multi Sprache')}" />						
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 					<g:each in="${objInstanceList}" var="objInstance">
-						<tr>
-						
+						<tr>						
 							<td>${fieldValue(bean: objInstance, field: "name")}</td>
-							
-							<td>
-								<g:each in="${objInstanceList }" var="ProduktFamilie">
-									${ProduktFamilie.name }
-								</g:each>
-							</td>
+							<td>${fieldValue(bean: objInstance, field: "produktfamilie_msprache")}</td>
+						
 						
 							<td class="link">
 								<g:link action="edit" id="${objInstance.id}" class="btn btn-small">Edit &raquo;</g:link>
+							</td>
 							</td>
 								<td class="link">
 								<g:link action="show" id="${objInstance.id}" class="btn btn-small">Show &raquo;</g:link>

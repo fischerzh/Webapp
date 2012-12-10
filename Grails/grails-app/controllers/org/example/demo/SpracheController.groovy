@@ -24,22 +24,6 @@ class SpracheController {
         [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
-     def list() {
-       def objList
-		def objCount
-		if(params.q) {
-			objList = Sprachen.search(params.q + "*").results
-			objCount = objList.size()
-		}
-		else {
-			objList = Sprachen.list(params)
-			objCount = Sprachen.count()
-		}
-		 
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: objList, objInstanceTotal: objCount]
-    }
-
     def create() {
 		switch (request.method) {
 		case 'GET':

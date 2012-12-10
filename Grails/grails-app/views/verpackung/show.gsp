@@ -15,7 +15,7 @@
 					<ul class="nav nav-list">
 						<li class="nav-header">${entityName}</li>
 						<li>
-							<g:link class="list" action="list">
+							<g:link class="list" action="index">
 								<i class="icon-list"></i>
 								<g:message code="default.list.label" args="[entityName]" />
 							</g:link>
@@ -42,10 +42,10 @@
 
 				<dl>
 				
-					<g:if test="${objInstance?.name}">
-						<dt><g:message code="Verpackung.name.label" default="Name" /></dt>
+					<g:if test="${objInstance?.wert}">
+						<dt><g:message code="Verpackung.wert.label" default="wert" /></dt>
 						
-							<dd><g:fieldValue bean="${objInstance}" field="name"/></dd>
+							<dd><g:fieldValue bean="${objInstance}" field="wert"/></dd>
 						
 					</g:if>
 				

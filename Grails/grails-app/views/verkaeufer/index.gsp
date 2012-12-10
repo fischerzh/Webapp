@@ -31,7 +31,7 @@
 					<thead>
 						<tr>	
 							<g:sortableColumn property="name" title="${message(code: 'Verkaeufer.name.label', default: 'Verkaeufer')}" />
-													
+							<g:sortableColumn property="ort" title="${message(code: 'Verkaeufer.ort.label', default: 'Ort')}" />						
 							<th></th>
 						</tr>
 					</thead>
@@ -42,19 +42,16 @@
 							
 						
 							<td>${fieldValue(bean: objInstance, field: "name")}</td>
+							<td>${fieldValue(bean: objInstance, field: "ort")}</td>
 							
-							<td>
-								<g:each in="${objInstanceList }" var="Verkaeufer">
-									${Verkaeufer.name }
-								</g:each>
-							</td>
-						
+												
 							<td class="link">
 								<g:link action="edit" id="${objInstance.id}" class="btn btn-small">Edit &raquo;</g:link>
 							</td>
 								<td class="link">
 								<g:link action="show" id="${objInstance.id}" class="btn btn-small">Show &raquo;</g:link>
 							</td>
+							
 						</tr>
 					</g:each>
 					</tbody>

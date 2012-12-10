@@ -33,8 +33,7 @@
 							<g:sortableColumn property="produktfamilie" title="${message(code: 'produkt.produktfamilie.label', default: 'ProduktFamilie')}" />
 							<g:sortableColumn property="hersteller" title="${message(code: 'produkt.hersteller.label', default: 'Hersteller')}" />
 							<g:sortableColumn property="verteiler" title="${message(code: 'produkt.verteiler.label', default: 'Verteiler')}" />
-							<g:sortableColumn property="inhaltsstoffe" title="${message(code: 'produkt.inhaltsstoffe.label', default: 'Inhaltsstoffe')}" />
-							<g:sortableColumn property="verpackung" title="${message(code: 'produkt.verpackung.label', default: 'Verpackung')}" />
+							
 							<th></th>
 						</tr>
 					</thead>
@@ -46,8 +45,7 @@
 							<td>${fieldValue(bean: objInstance, field: "produktfamilie")}</td>
 							<td>${fieldValue(bean: objInstance, field: "hersteller")}</td>
 							<td>${fieldValue(bean: objInstance, field: "verteiler")}</td>
-							<td>${fieldValue(bean: objInstance, field: "inhaltsstoffe")}</td>
-							<td>${fieldValue(bean: objInstance, field: "verpackung")}</td>
+
 							
 							
 							<td class="link">

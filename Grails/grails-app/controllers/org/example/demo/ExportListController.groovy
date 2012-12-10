@@ -16,6 +16,7 @@ class ExportListController {
 	def objTotal
 
 	def filter
+
 	
 	def index() {
 		
@@ -24,19 +25,19 @@ class ExportListController {
 			filter.istAktiv = true	
 			objList = Produkt.search(filter.name).results
 			objTotal = objList.size()
+			
+			if(!params.max) params.max = 10 
+
+					response.contentType = grailsApplication.config.grails.mime.types["excel"]
+					response.setHeader("Content-disposition", "attachment; filename=Produkt.xls")
+							
+					exportService.export("excel", response.outputStream, objList, [:], [:])
+						
 		}
 		else {			
 				objList = Produkt.list()
 				objTotal = Produkt.count()
 			}
-			
-		if(!params.max) params.max = 10
-		if(params?.format && params.format != "html"){
-		response.contentType = grailsApplication.config.grails.mime.types[params.format]
-		response.setHeader("Content-disposition", "attachment; filename=Produkt.${params.extension}")
-				
-		exportService.export(params.format, response.outputStream, objList, [:], [:])
-		}
 		  render (view:'index', model: [ objInstanceList : objList, objInstanceTotal : objTotal])
 	}
 

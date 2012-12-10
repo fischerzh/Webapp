@@ -10,4 +10,8 @@ class ProduktFamilie_msprache {
     static constraints = {
 		name blank:false, unique:true
     }
+	
+	String toString()  {
+		return name? name: ""
+	}
 }

@@ -24,22 +24,6 @@ class ProduktFamilieController {
         [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
-     def list() {
-		def objList
-		def objCount
-		if(params.q) {
-			objList = ProduktFamilie.search(params.q + "*").results
-			objCount = objList.size()
-		}
-		else {
-			objList = ProduktFamilie.list(params)
-			objCount = ProduktFamilie.count()
-		}
-		 
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: objList, objInstanceTotal: objCount]
-    }
-
     def create() {
 		switch (request.method) {
 		case 'GET':

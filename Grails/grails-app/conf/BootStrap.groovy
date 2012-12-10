@@ -31,9 +31,9 @@ class BootStrap {
 		def land2 = new Land(name:'Deutschland')
 		land2.save(failOnError:true)
 		
-		def ort1 = new Ort(name: 'Zuerich', zip:'8000', landList:land1)
+		def ort1 = new Ort(name: 'Zuerich', zip:'8000', land:land1)
 		ort1.save(failOnError:true)
-		def ort2 = new Ort(name:'Bern', zip:'9000', landList:land1)
+		def ort2 = new Ort(name:'Bern', zip:'9000', land:land1)
 		ort2.save(failOnError:true)
 		
 		def sprache1 = new Sprachen(name:'Deutsch', sprachcode:'de')
@@ -41,14 +41,14 @@ class BootStrap {
 		def sprache2 = new Sprachen(name:'Englisch', sprachcode:'en')	
 		sprache2.save(failOnError:true)
 		
-		def gemeinde1 = new Gemeinde(name:'Oerlikon', rabbinat:'Rabbinat Oerlikon', ortList:ort1)
+		def gemeinde1 = new Gemeinde(name:'Oerlikon', rabbinat:'Rabbinat Oerlikon', ort:ort1)
 		gemeinde1.save(failOnError:true)
-		def gemeinde2 = new Gemeinde(name:'Wipkingen', rabbinat:'Rabbinat Wipkingen', ortList:ort1)
+		def gemeinde2 = new Gemeinde(name:'Wipkingen', rabbinat:'Rabbinat Wipkingen', ort:ort1)
 		gemeinde2.save(failOnError:true)
 		
-		def verkaeufer1 = new Verkaeufer(name:'test Verkaeufer', ortList:ort1)
+		def verkaeufer1 = new Verkaeufer(name:'test Verkaeufer', ort:ort1)
 		verkaeufer1.save(failOnError:true)
-		def verkaeufer2 = new Verkaeufer(name:'test Verkaeufer2', ortList:ort1)
+		def verkaeufer2 = new Verkaeufer(name:'test Verkaeufer2', ort:ort1)
 		verkaeufer2.save(failOnError:true)
 		
 		def verpackungswert1 = new Verpackung_werte(verpackung:'kg')

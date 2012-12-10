@@ -6,7 +6,7 @@ class Gemeinde {
 	String name
 	String rabbinat
 
-	static belongsTo = [ortList:Ort]
+	static belongsTo = [ort:Ort]
 	
     static constraints = {
 		name blank:false, unique:true

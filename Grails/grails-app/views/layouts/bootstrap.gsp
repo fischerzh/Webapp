@@ -34,9 +34,9 @@
 								<li<%=  controllerName == 'home'? ' class="active"' : '' %>>
 								<g:link controller='home'>Home</g:link></li>
 								<li<%= controllerName == 'user'? ' class="active"' : '' %>>
-								<g:link controller='user'>User </g:link></li>		
+								<g:link controller='user'>User Verwaltung </g:link></li>		
 								<li<%=  controllerName == 'filter'? ' class="active"' : '' %>>
-								<g:link controller='filter'>Filter</g:link></li>
+								<g:link controller='filter'>Filter Verwaltung</g:link></li>
 							<li class="dropdown">
 								 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 									 Datenbank
@@ -77,9 +77,9 @@
 							     </a>
 							  <ul class="dropdown-menu">
 							    <li<%= controllerName == 'manageList'? ' class="active"' : '' %>>
-								<g:link controller='manageList'>Manage List</g:link></li>	
+								<g:link controller='manageList'>Verwalte Export Liste</g:link></li>	
 								<li<%= controllerName == 'exportList'? ' class="active"' : '' %>>
-								<g:link controller='exportList'>List Export </g:link></li>	
+								<g:link controller='exportList'>Exportiere als Excel </g:link></li>	
 								 <li<%= controllerName == 'export'? ' class="active"' : '' %>>
 								<g:link controller='exportJson'>JSON Export </g:link></li>						
 							  </ul> </li></ul>

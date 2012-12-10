@@ -24,21 +24,6 @@ class Verpackung_werteController {
         [objInstanceList: objList, objInstanceTotal: objCount]
 	}
 
-     def list() {
-        def objList
-		def objCount
-		if(params.q) {
-			objList = Verpackung_werte.search(params.q + "*").results
-			objCount = objList.size()
-		}
-		else {
-			objList = Verpackung_werte.list(params)
-			objCount = Verpackung_werte.count()
-		}
-		 
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [objInstanceList: objList, objInstanceTotal: objCount]
-    }
 
     def create() {
 		switch (request.method) {
