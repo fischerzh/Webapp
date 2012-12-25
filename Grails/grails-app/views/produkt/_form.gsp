@@ -1,4 +1,4 @@
-<%@ page import="org.example.demo.Product" %>
+<%@ page import="org.example.demo.Produkt" %>
 
 
 

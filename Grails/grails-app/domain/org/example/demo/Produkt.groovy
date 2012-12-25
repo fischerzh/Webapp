@@ -29,8 +29,8 @@ class Produkt {
 	Date naechsteKontrolle
 	
 	static belongsTo = [hersteller:Hersteller, verteiler:Verteiler, verpackung:Verpackung, produktfamilie:ProduktFamilie,
-					    inhaltsstoffe:Inhaltsstoffe, verkaeufer:Verkaeufer, kontrolleur:Kontrolleur]
-	
+					     inhaltsstoffe:Inhaltsstoffe, verkaeufer:Verkaeufer, kontrolleur:Kontrolleur]
+			
     static constraints = {
 		name blank:false, unique:true
 		ean blank:false, unique:true
@@ -40,6 +40,7 @@ class Produkt {
 	}
 	static mapping = {
 		autoTimestamp true
+		inhaltsstoffe cascade: "all-delete-orphan"
 }
 	
 }
