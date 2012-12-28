@@ -7,12 +7,9 @@
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<div class="row-fluid">
-			
-			
+		<div class="row-fluid">		
 			
 			<div class="span9">
-
 				
 				<div class="page-header">
 					<g:link class="list" action="index">

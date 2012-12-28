@@ -39,8 +39,7 @@
 					</thead>
 					<tbody>
 					<g:each in="${objInstanceList}" var="objInstance">
-						<tr>
-												
+						<tr>												
 							<td>${fieldValue(bean: objInstance, field: "name")}</td>
 							<td>${fieldValue(bean: objInstance, field: "produktfamilie")}</td>
 							<td>${fieldValue(bean: objInstance, field: "hersteller")}</td>
