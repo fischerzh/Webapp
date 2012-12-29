@@ -60,27 +60,53 @@
 						<fieldset>
 							<f:field bean="productInstance" property="name"/>
 							<f:field bean="productInstance" property="ean"/>
+							<f:field bean="productInstance" property="istKoscher"/>
+							<f:field bean="productInstance" property="istVegan"/>
+							<f:field bean="productInstance" property="istBischulak"/>
+							<f:field bean="productInstance" property="istBliothlssur"/>
+							<f:field bean="productInstance" property="istChalavakum"/>
+							<f:field bean="productInstance" property="istIsraelischesProdukt"/>
+							<f:field bean="productInstance" property="istTarovetlssur"/>
+							<f:field bean="productInstance" property="pasPalter"/>
+							<f:field bean="productInstance" property="istIGFLProdukt"/>
+							<f:field bean="productInstance" property="istMp"/>
+							<f:field bean="productInstance" property="externeKontrolle"/>
+							<f:field bean="productInstance" property="parve"/>
+							<f:field bean="productInstance" property="tolaim"/>
+							<f:field bean="productInstance" property="erstellung"/>
+							<f:field bean="productInstance" property="veroeffentlichung"/>
+							<f:field bean="productInstance" property="kontrolle"/>
+							<f:field bean="productInstance" property="geaendert"/>
+							<f:field bean="productInstance" property="naechsteKontrolle"/>
+							<f:field bean="productInstance" property="hersteller"/>
+							<f:field bean="productInstance" property="verteiler"/>
+							<f:field bean="productInstance" property="verpackung"/>
+							<f:field bean="productInstance" property="produktfamilie"/>
+							<f:field bean="productInstance" property="verkaeufer"/>
+							<f:field bean="productInstance" property="kontrolleur"/>
 							<f:field bean="productInstance" property="inhaltsstoffe">
 								<table class="productTable">
 								 <tr class = "row">
 								 <td><form name="select">
-									<g:select name="selectedValue" from="${Inhaltsstoffe.list()}" optionKey="id" noSelection="['':'Wähle Inhaltstoff..']"/>
+									<g:select name="selectedValue" from="${Inhaltsstoffe.list()}" optionKey="id" 
+									onchange="${remoteFunction(
+          							action:'ajaxGetCities', 
+            						params:'\'id=\' + escape(this.value)' 
+									)}"/>
 									</form><input type="button" class="deleteThisRow"/ value="Delete &raquo;"></td>
 								 </tr>
 								</table>
 								<input type="button" id="btnAddMore"  value="Hinzufügen &raquo;"/>
 							</f:field>
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">
+									<i class="icon-ok icon-white"></i>
+									<g:message code="default.button.create.label" default="Create" />
+								</button>
+								</div>
 						</fieldset>
 					</g:form>
-					</fieldset>
-						
-					<div class="form-actions">
-					<button type="submit" class="btn btn-primary">
-						<i class="icon-ok icon-white"></i>
-						<g:message code="default.button.create.label" default="Create" />
-					</button>
-					</div>
-									
+					</fieldset>								
 			</div>			
 		</div>
 	</body>

@@ -29,7 +29,9 @@ class Produkt {
 	Date naechsteKontrolle
 	
 	static belongsTo = [hersteller:Hersteller, verteiler:Verteiler, verpackung:Verpackung, produktfamilie:ProduktFamilie,
-					     inhaltsstoffe:Inhaltsstoffe, verkaeufer:Verkaeufer, kontrolleur:Kontrolleur]
+					     verkaeufer:Verkaeufer, kontrolleur:Kontrolleur]
+	
+	static hasMany = [inhaltsstoffe:Inhaltsstoffe]
 			
     static constraints = {
 		name blank:false, unique:true

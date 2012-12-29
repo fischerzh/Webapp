@@ -30,7 +30,7 @@
 						<dt><g:message code="product.name.label" default="Name" /></dt>
 						
 							<dd><g:fieldValue bean="${productInstance}" field="name"/></dd>
-						
+							<dd><g:fieldValue bean="${productInstance}" field="inhaltsstoffe"/></dd>
 					</g:if>						
 				
 				</dl>

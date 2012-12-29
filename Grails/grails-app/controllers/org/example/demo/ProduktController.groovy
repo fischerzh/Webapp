@@ -8,7 +8,6 @@ import grails.plugins.springsecurity.Secured
 class ProduktController {
     static allowedMethods = [create: ['GET', 'POST'], edit: ['GET', 'POST'], delete: 'POST']
 
-
     def index() {
 		def objList
 		def objCount
@@ -33,7 +32,59 @@ class ProduktController {
 			
 			break
 		case 'POST':
-	        def productInstance = new Produkt(params)
+	        def productInstance = new Produkt()
+			
+			productInstance.name = params.name
+			productInstance.ean = params.ean
+			productInstance.parve = params.parve
+			productInstance.tolaim = params.tolaim			
+			
+			productInstance.istKoscher = params.istKoscher
+			productInstance.istBischulak = params.istBischulak
+			productInstance.istBliothlssur = params.istBliothlssur
+			productInstance.istChalavakum = params.istChalavakum
+			productInstance.istIsraelischesProdukt = params.istIsraelischesProdukt
+			productInstance.istTarovetlssur = params.istTarovetlssur
+			productInstance.pasPalter = params.pasPalter
+			productInstance.istIGFLProdukt = params.istIGFLProdukt
+			productInstance.istMp = params.istMp
+			productInstance.externeKontrolle = params.externeKontrolle
+			productInstance.erstellung = params.erstellung
+			productInstance.veroeffentlichung = params.veroeffentlichung
+			productInstance.geaendert = params.geaendert
+			productInstance.naechsteKontrolle = params.naechsteKontrolle
+			productInstance.kontrolle = params.kontrolle
+						
+			if(params.kontrolleur.id) {
+				def kontrolleur = Kontrolleur.get(params.kontrolleur.id)
+				productInstance.kontrolleur = kontrolleur
+			}
+			if(params.verpackung.id) {
+				def verpackung = Verpackung.get(params.verpackung.id)
+				productInstance.verpackung = verpackung
+			}
+			if(params.hersteller.id) {
+				def hersteller = Hersteller.get(params.hersteller.id)
+				productInstance.hersteller = hersteller
+			}
+			if(params.verteiler.id) {
+				def verteiler = Verteiler.get(params.verteiler.id)
+				productInstance.verteiler = verteiler
+			}
+			if(params.produktfamilie.id) {
+				def produktfamilie = ProduktFamilie.get(params.produktfamilie.id)
+				productInstance.produktfamilie = produktfamilie
+			}
+			if(params.verkaeufer.id) {
+				def verkaeufer = Verkaeufer.get(params.verkaeufer.id)
+				productInstance.verkaeufer = verkaeufer
+			}
+			
+			if(params.selectedValue) {
+				def inhaltsstoff = Inhaltsstoffe.get(params.selectedValue)
+				productInstance.addToInhaltsstoffe(inhaltsstoff)
+			}
+			
 	        if (!productInstance.save(flush: true)) {
 	            render view: 'create', model: [productInstance: productInstance]
 	            return
@@ -55,6 +106,7 @@ class ProduktController {
 
         [productInstance: productInstance]
     }
+
 
     def edit() {
 		switch (request.method) {
