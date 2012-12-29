@@ -10,7 +10,7 @@ def exportService
 	def index() {
 		
 		jsonMap.produkte = objList.collect {prod ->
-			return [id: prod.id, name: prod.name, chalavakum: prod.istChalavakum, parve: prod.parve, verpackung: prod.verpackung, kontrolleur: prod.kontrolleur ]
+			return [id: prod.id, name: prod.name, chalavakum: prod.istChalavakum, parve: prod.parve, verpackung: prod.verpackung, kontrolleur: prod.kontrolleur, hersteller: prod.hersteller, inhaltsstoffe: prod.inhaltsstoffe ]
 		}
 		
 		if(!params.max) params.max = 10
