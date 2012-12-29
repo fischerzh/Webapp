@@ -1,9 +1,9 @@
 dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
-	dbCreate = "update"
-	url ="jdbc:mysql://www.freesql.org"
-    username = "unizh"
+	url ="jdbc:mysql://localhost:3306/grails_app"
+    dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+    username = "grails"
     password = "MasterP2012"
 }
 hibernate {
@@ -11,6 +11,7 @@ hibernate {
     cache.use_query_cache = false
     cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
 }
+
 // environment specific settings
 environments {
     development {
